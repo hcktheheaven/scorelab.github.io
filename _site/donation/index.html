@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="/assets/img/logo.png">
-
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 
     <title>SCoRe Lab - Donations</title>
@@ -32,6 +32,62 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+    input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  font-family: 'Roboto';font-size: 16px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+input[type=number] {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+box-sizing: border-box;
+font-family: 'Roboto';font-size: 16px;
+border: 3px solid #ccc;
+-webkit-transition: 0.5s;
+transition: 0.5s;
+outline: none;
+}
+label{
+  font-family: 'Roboto';font-size: 16px;
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+input[type=number]:focus {
+  border: 3px solid #555;
+}
+input[type=submit]{
+  border: 3px solid #555;
+  background-color: white;
+  padding: 12px 20px;
+}
+.donationimg{
+  width: 140px;
+  float: right;
+  margin: 80px;
+  margin-right: 100px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .donationimg{
+    width: 80px;
+    float: right;
+    margin: 20px;
+  }
+}
+
+    </style>
 </head>
 
 
@@ -60,6 +116,7 @@
             <li ><a href="/blog/">Blog and Gallery</a></li>
             <li class="active"><a href="/donation/">Donations</a></li>
             <li ><a href="/contact/">Contact</a></li>
+            <li ><a href="/gsoc-2018/">GSoC 2018</a></li>
         </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -81,22 +138,28 @@
     </div>
 </div>-->
 <div class="container">
+
+  <img  class="donationimg" src="/assets/img/donate_vector.png" alt="Donate">
     <div class="row">
         <div class="col-lg-6">
             <!--Online Donation-->
-            <h3>Online Donation</h3>
+            <h3>Online Donation</h3><br>
             <div>
               <section>
+
                   <form>
-                      Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <!--  Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <input type="text" name="firstname" value="Anonymous"><br>
                       Amount:&nbsp;
                       <input type="number" name="lastname" value="0"><br><br>
-                      <input type="submit" value="Donate">
-                  </form> 
+                      <input type="submit" value="Donate">-->
+                      <label for="fname">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="fname" name="fname" value="Anonymouse"></label><br>
+                      <label for="lname">Amount:<input type="number" id="lname" name="lname" value="0"></label><br>
+                      <label><input type="submit" value="Donate"></label>
+                  </form>
               </section>
             </div>
-            
+<br>
             <!--Direct Payment-->
             <h3>Direct Payment</h3>
             <div>
@@ -117,7 +180,7 @@
                   </ul>
               </section>
             </div>-->
-        </div>   
+        </div>
         <!--<div class="col-lg-6">
             <h3>Donors</h3>
         </div>-->
@@ -129,17 +192,17 @@
         <div class="row">
             <div class="col-lg-12" style="text-align:center">
                 <p>
-                    
+
                         <a href="" class="btn-social btn-outline"><i class="fa fa-facebook"></i></a>
-                    
+
                         <a href="" class="btn-social btn-outline"><i class="fa fa-twitter"></i></a>
-                    
+
                 </p>
             </div>
         </div><!--/row -->
         <div class="row">
             <div class="col-lg-12" style="text-align:center; color:#fff">
-                © Copyright 2017 Sustainable Computing Research Group (SCoRe)
+                © Copyright 2018 Sustainable Computing Research Group (SCoRe)
             </div>
         </div><!--/row -->
     </div><!--/container -->
@@ -161,11 +224,11 @@
 	var $container = $('.portfolio'),
 		$items = $container.find('.portfolio-item'),
 		portfolioLayout = 'fitRows';
-		
+
 		if( $container.hasClass('portfolio-centered') ) {
 			portfolioLayout = 'masonry';
 		}
-				
+
 		$container.isotope({
 			filter: '*',
 			animationEngine: 'best-available',
@@ -178,12 +241,12 @@
 		masonry: {
 		}
 		}, refreshWaypoints());
-		
+
 		function refreshWaypoints() {
 			setTimeout(function() {
-			}, 1000);   
+			}, 1000);
 		}
-				
+
 		$('nav.portfolio-filter ul a').on('click', function() {
 				var selector = $(this).attr('data-filter');
 				$container.isotope({ filter: selector }, refreshWaypoints());
@@ -191,11 +254,11 @@
 				$(this).addClass('active');
 				return false;
 		});
-		
-		function getColumnNumber() { 
-			var winWidth = $(window).width(), 
+
+		function getColumnNumber() {
+			var winWidth = $(window).width(),
 			columnNumber = 1;
-		
+
 			if (winWidth > 1200) {
 				columnNumber = 5;
 			} else if (winWidth > 950) {
@@ -208,31 +271,31 @@
 				columnNumber = 1;
 			}
 				return columnNumber;
-			}       
-			
+			}
+
 			function setColumns() {
-				var winWidth = $(window).width(), 
-				columnNumber = getColumnNumber(), 
+				var winWidth = $(window).width(),
+				columnNumber = getColumnNumber(),
 				itemWidth = Math.floor(winWidth / columnNumber);
-				
-				$container.find('.portfolio-item').each(function() { 
-					$(this).css( { 
-					width : itemWidth + 'px' 
+
+				$container.find('.portfolio-item').each(function() {
+					$(this).css( {
+					width : itemWidth + 'px'
 				});
 			});
 		}
-		
-		function setPortfolio() { 
+
+		function setPortfolio() {
 			setColumns();
 			$container.isotope('reLayout');
 		}
-			
-		$container.imagesLoaded(function () { 
+
+		$container.imagesLoaded(function () {
 			setPortfolio();
 		});
-		
-		$(window).on('resize', function () { 
-		setPortfolio();          
+
+		$(window).on('resize', function () {
+		setPortfolio();
 	});
 })(jQuery);
 </script>
